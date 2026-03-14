@@ -12,7 +12,7 @@ function CommentContainer({ data, comment, deleting }) {
     <section className="flex flex-col gap-4 md:gap-6">
       <CommentCard data={data} comment={comment} isReply={null} reload={reloadCommentCard} deleting={deleting} />
       {comment.replies.length !== 0 && (
-        <div className="flex flex-col gap-4 md:gap-6 pl-4 md:ml-4 lg:ml-6 lg:pl-6  border-l-2 border-accGray3">
+        <div className="flex flex-col gap-4 md:gap-6 pl-4 ml-4 md:pl-6 md:ml-8 lg:ml-10 lg:pl-10  border-l-2 border-accGray3">
           {comment.replies.map((reply) => (
             <CommentCard
               data={data}
