@@ -1,3 +1,11 @@
+/**
+ * Name: Reply_Edit
+ * Funtion: Displays reply or delete and edit buttons within each card
+ * @param {object} props {comment, current, functions}
+ * @returns {object} button(s)
+ */
+
+
 function Reply_Edit({comment, current, functions}) {
   return (
     <>

@@ -1,6 +1,17 @@
 import { useEffect, useRef } from "react";
 
+/**
+ * Name: NewComment
+ * Funtion: Shows new comment or reply box with text area and send button
+ * @param {object} props {data, replyTo, replyName, toggleReply, reload}
+ * @returns {object} New Comment Area
+ */
+
+
 function NewComment({ data, replyTo, replyName, toggleReply, reload }) {
+  const inputRef = useRef(null);
+
+  //Created a new comment object and appends it to data, then stores
   const createComment = (event) => {
     event.preventDefault();
     const formData = new FormData(event.target);
@@ -30,8 +41,7 @@ function NewComment({ data, replyTo, replyName, toggleReply, reload }) {
     }
   };
 
-  const inputRef = useRef(null);
-
+  //Sets autofocus when a reply box is opened, but not to the nem comment box on load
   useEffect(() => {
     if (inputRef.current) {
       inputRef.current.focus();

@@ -4,30 +4,36 @@ import NewComment from "./NewComment";
 import Reply_Edit from "./Reply_Edit";
 import EditBox from "./EditBox";
 
+
+/**
+ * Name: CommentCard
+ * Funtion: Displays each individual comment in a card
+ * @param {object} props {data, comment, isReply, reload, deleting}
+ * @returns {object} indiviual comment
+ */
+
 function CommentCard({ data, comment, isReply, reload, deleting }) {
   const [replying, setReplying] = useState(false);
   const [editing, setEditing] = useState(false);
   const [elapsedTime, setElapsedTime] = useState("");
-  const [cardReload, setCardReload] = useState(0);
 
+  //Opens and closes reply box
   const toggleReply = () => {
     setReplying(!replying);
   };
 
+  //Opens and closes edit area
   const toggleEdit = () => {
     setEditing(!editing);
   };
 
-  const reloadCard = () => {
-    setCardReload(cardReload + 1);
-  }
-
+  //Finds elapsed time since comment was created
   useEffect(() => {
     if (comment.hasDate) {
     const current = Date.now();
     setElapsedTime(elapsedTime => elapsedTime = findTimeDifference(current - comment.createdAt));
   }
-  }, [cardReload]);
+  }, [toggleEdit]);
   
 
   return (
@@ -84,6 +90,13 @@ function CommentCard({ data, comment, isReply, reload, deleting }) {
 }
 
 export default CommentCard;
+
+/**
+ * Name: findTimeDifference
+ * Funtion: converts elapsed milliseconds to other units
+ * @param {number} diff elapsed time in milliseconds
+ * @returns {string} number of greatest elapsed unit
+ */
 
 function findTimeDifference(diff) {
   let seconds = Math.floor(diff / 1000);

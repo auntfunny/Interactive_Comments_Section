@@ -1,9 +1,17 @@
 import { useState } from "react";
 import CommentCard from "./CommentCard";
 
+/**
+ * Name: CommentContainer
+ * Funtion: Displays container of each comment with all the replies
+ * @param {object} props {data, comment, deleting}
+ * @returns {object} Container of comment and replies
+ */
+
 function CommentContainer({ data, comment, deleting }) {
   const [dataReload, setDataReload] = useState(0);
 
+  //Force card and reply reload
   const reloadCommentCard = () => {
     setDataReload(dataReload + 1);
   }

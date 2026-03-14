@@ -1,3 +1,10 @@
+/**
+ * Name: ConfirmDeleteModal
+ * Funtion: Floating modal to confirm or cancel deletion of comment
+ * @param {object} props {deleting, deleted}
+ * @returns {object} Floating modal
+ */
+
 function ConfirmDeleteModal({ deleting, deleted }) {
   return (
     <aside className="fixed flex justify-center items-center w-screen h-screen bg-[#00000079] z-100">

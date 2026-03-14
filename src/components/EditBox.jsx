@@ -1,6 +1,17 @@
 import { useRef, useEffect } from "react";
 
+/**
+ * Name: EditBox
+ * Funtion: Displays textarea to edit existing comment and a update button
+ * @param {object} props {data, comment, edit, reload}
+ * @returns {object} edit area
+ */
+
+
 function EditBox({ comment, data, edit, reload }) {
+  const inputRef = useRef(null);
+
+  //Updates and saves comment content on submit
   const updateComment = (event) => {
     event.preventDefault();
     const formData = new FormData(event.target);
@@ -14,8 +25,7 @@ function EditBox({ comment, data, edit, reload }) {
     }
   };
 
-  const inputRef = useRef(null);
-
+  //Places cursor at the end of the comment when rendered
   useEffect(() => {
     if (inputRef.current) {
       inputRef.current.focus();

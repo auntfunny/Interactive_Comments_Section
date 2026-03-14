@@ -1,10 +1,19 @@
 import { useEffect, useState } from "react";
 
+/**
+ * Name: Counter
+ * Funtion: Displays score counter within each card
+ * @param {object} props {data, comment}
+ * @returns {object} Score counter
+ */
+
+
 function Counter({ comment, data }) {
   const [count, setCount] = useState(comment.score);
   const [up, setUp] = useState(comment.upVote || false);
   const [down, setDown] = useState(comment.downVote || false);
 
+  //Tracks up vote and allows one per card
   const upVote = () => {
     if (!up && !down) {
       setCount(count + 1);
@@ -23,6 +32,7 @@ function Counter({ comment, data }) {
     }
   };
 
+  //Tracks down vote and allows one per card
   const downVote = () => {
     if (!up && !down && count > 0) {
       setCount(count - 1);
@@ -41,6 +51,7 @@ function Counter({ comment, data }) {
     }
   };
 
+  //Saves up or down vote data every time it is changed
   useEffect(() => {
     comment.score = count;
     localStorage.setItem("myComments", JSON.stringify(data));

@@ -4,11 +4,19 @@ import NewComment from "./components/NewComment";
 import data from "./data/data.json";
 import ConfirmDeleteModal from "./components/ConfirmDeleteModal";
 
+/**
+ * Name: App
+ * Funtion: Shows main body of application
+ * @param {} none
+ * @returns {object} main body of application
+ */
+
 function App() {
   const [allCommentReload, setAllCommentReload] = useState(0);
   const [deleting, setDeleting] = useState(false);
-  const [activeDelete, setActiveDelete] = useState({});
+  const [activeDelete, setActiveDelete] = useState(0);
 
+  //Load Local Data or set to original data
   const localData = localStorage.getItem("myComments");
   let localComments = { ...data };
   if (localData) {
@@ -19,16 +27,19 @@ function App() {
   }
   localComments.comments.sort((a, b) => b.score - a.score);
 
+  //Open and close Delete Modal
   const confirmDelete = (id) => {
     setDeleting(!deleting);
     if (id) {
       setActiveDelete((a) => (a = id));
     }
   };
+  //Force Reload when data is changed
   const reloadCardList = () => {
     setAllCommentReload(allCommentReload + 1);
   };
 
+  //Delete comment after confirmation
   const deleteComment = () => {
     let found = localComments.comments.find(comment => comment.id === activeDelete)
     if(found){
@@ -51,7 +62,7 @@ function App() {
     console.log(activeDelete);
   };
 
-
+  
   return (
     <div>
       {deleting && (
