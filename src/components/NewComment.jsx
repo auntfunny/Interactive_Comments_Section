@@ -67,7 +67,7 @@ function NewComment({ data, replyTo, replyName, toggleReply, reload }) {
         alt={data.currentUser.username}
         className="w-8 mb-2"
       />
-      <button className="absolute bottom-4 right-4 md:bottom-auto md:top-4 w-24 p-3 bg-accPurp1 rounded-lg font-medium text-white shadow hover:bg-accPurp2">
+      <button type="submit" className="absolute bottom-4 right-4 md:bottom-auto md:top-4 w-24 p-3 bg-accPurp1 rounded-lg font-medium text-white shadow hover:bg-accPurp2">
         {replyTo ? "REPLY" : "SEND"}
       </button>
     </form>

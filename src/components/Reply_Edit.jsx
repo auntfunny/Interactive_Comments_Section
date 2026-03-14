@@ -25,7 +25,7 @@ function Reply_Edit({comment, current, functions}) {
             alt="Reply Icon"
             className="absolute left-0 opacity-0 group-hover:opacity-100"
           />
-          <p>Reply</p>
+          Reply
         </button>
       ) : (
         <div className="absolute bottom-6 right-5 md:bottom-auto md:top-5 flex gap-2 items-center">
@@ -44,7 +44,7 @@ function Reply_Edit({comment, current, functions}) {
               alt="Reply Icon"
               className="absolute left-0 opacity-0 group-hover:opacity-100"
             />
-            <p>Delete</p>
+            Delete
           </button>
           <button
           onClick={functions.edit}
@@ -61,7 +61,7 @@ function Reply_Edit({comment, current, functions}) {
               alt="Reply Icon"
               className="absolute left-0 opacity-0 group-hover:opacity-100"
             />
-            <p>Edit</p>
+            Edit
           </button>
         </div>
       )}

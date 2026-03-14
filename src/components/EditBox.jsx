@@ -42,7 +42,7 @@ function EditBox({ comment, data, edit, reload }) {
         defaultValue={comment.content}
         className="rounded-lg border border-accGray3 p-4 text-accGray2 resize-none h-32 w-full placeholder:text-accGray2 hover:border-accPurp1 focus:outline-none focus:border-accPurp1 caret-accPurp1"
       ></textarea>
-      <button className="self-end w-24 p-3 bg-accPurp1 rounded-lg font-medium text-white shadow hover:bg-accPurp2">
+      <button type="submit" className="self-end w-24 p-3 bg-accPurp1 rounded-lg font-medium text-white shadow hover:bg-accPurp2">
         UPDATE
       </button>
     </form>

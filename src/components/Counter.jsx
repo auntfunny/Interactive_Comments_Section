@@ -59,7 +59,8 @@ function Counter({ comment, data }) {
 
   return (
     <div className="flex md:flex-col items-center justify-between w-28 md:w-10 md:mx-3 md:h-24 px-4  py-2 bg-accGray4 rounded-xl text-accPurp2">
-      <div
+      <button
+        type="button"
         onClick={upVote}
         className={
           up
@@ -81,9 +82,10 @@ function Counter({ comment, data }) {
             d="M12 4.5v15m7.5-7.5h-15"
           />
         </svg>
-      </div>
+      </button>
       <p className="font-medium text-accPurp1">{count}</p>
-      <div
+      <button
+      type="button"
         onClick={downVote}
         className={
           down
@@ -101,7 +103,7 @@ function Counter({ comment, data }) {
         >
           <path strokeLinecap="round" strokeLinejoin="round" d="M5 12h14" />
         </svg>
-      </div>
+      </button>
     </div>
   );
 }

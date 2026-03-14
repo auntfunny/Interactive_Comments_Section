@@ -15,8 +15,8 @@ function ConfirmDeleteModal({ deleting, deleted }) {
           comment and can't be undone.
         </p>
         <div className="flex justify-between">
-          <button onClick={() => deleting(0)} className="w-40 rounded-lg bg-accGray2 text-white p-3 font-medium uppercase hover:cursor-pointer hover:bg-accGray1">No, Cancel</button>
-          <button onClick={deleted} className="w-40 rounded-lg bg-accPink1 text-white p-3 font-medium uppercase hover:cursor-pointer hover:bg-accPink2">Yes, Delete</button>
+          <button type="button" onClick={() => deleting(0)} className="w-40 rounded-lg bg-accGray2 text-white p-3 font-medium uppercase hover:cursor-pointer hover:bg-accGray1">No, Cancel</button>
+          <button type="button" onClick={deleted} className="w-40 rounded-lg bg-accPink1 text-white p-3 font-medium uppercase hover:cursor-pointer hover:bg-accPink2">Yes, Delete</button>
         </div>
       </div>
     </aside>

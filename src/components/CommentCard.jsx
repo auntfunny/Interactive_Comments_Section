@@ -31,7 +31,7 @@ function CommentCard({ data, comment, isReply, reload, deleting }) {
   useEffect(() => {
     if (comment.hasDate) {
     const current = Date.now();
-    setElapsedTime(elapsedTime => elapsedTime = findTimeDifference(current - comment.createdAt));
+    setElapsedTime(a => a = findTimeDifference(current - comment.createdAt));
   }
   }, [toggleEdit]);
   
@@ -59,7 +59,7 @@ function CommentCard({ data, comment, isReply, reload, deleting }) {
             </p>
           </div>
           {editing ? (
-            <EditBox comment={comment} data={data} edit={toggleEdit} reload={reloadCard} />
+            <EditBox comment={comment} data={data} edit={toggleEdit}/>
           ) : (
             <p className="text-accGray2">
               {comment.replyingTo && (
