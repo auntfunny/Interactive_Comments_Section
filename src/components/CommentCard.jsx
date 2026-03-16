@@ -30,10 +30,18 @@ function CommentCard({ data, comment, isReply, reload, deleting }) {
   //Finds elapsed time since comment was created
   useEffect(() => {
     if (comment.hasDate) {
-    const current = Date.now();
-    setElapsedTime(a => a = findTimeDifference(current - comment.createdAt));
-  }
-  }, [toggleEdit]);
+      const current = Date.now();
+      setElapsedTime(a => a = findTimeDifference(current - comment.createdAt));
+    }
+    const interval = setInterval(() => {
+      if (comment.hasDate) {
+      const current = Date.now();
+      setElapsedTime(a => a = findTimeDifference(current - comment.createdAt));
+    }
+    }, 5000)
+
+    return () => clearInterval(interval);
+  }, []);
   
 
   return (
@@ -55,7 +63,7 @@ function CommentCard({ data, comment, isReply, reload, deleting }) {
               )}
             </p>
             <p className="text-accGray2">
-              {comment.hasDate ? elapsedTime ? `${elapsedTime} ago` : "Now" : comment.createdAt}
+              {comment.hasDate ? elapsedTime ? `${elapsedTime} ago` : "Loading..." : comment.createdAt}
             </p>
           </div>
           {editing ? (
